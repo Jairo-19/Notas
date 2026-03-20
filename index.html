@@ -3,33 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App de notas version 2</title>
+    <title>App de notas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
 
-    <!--CABEZARA-->
+    <!--CABECERA-->
     <header class="bg-primary text-white text-center py-4 mb-4 shadow-sm">
         <h1 class="h3">Bienvenido a mi app de notas</h1>
     </header>
 
-    <!--CONTENEDOR PRINCIPAR-->
-    <main class="container">
+    <!--CONTENEDOR PRINCIPAL-->
+    <main>
 
-        
+        <!--CONTENEDOR DE NOTAS-->
+        <div class="container">
+            
+            <h3>Escribe aqui tus notas</h3>
 
+            <!--Input donde el usuario escribe la tarea-->
+            <input id="texto" type="text" class="form-control mb-2">
 
+            <!--Lista donde se mostrarán las tareas-->
+            <ul id="lista" class="list-group"></ul>
 
-
+            <button id="boton" class="btn btn-primary mt-2">Agregar tarea</button>
+        </div>
     </main>
 
-    
    <script>
+        // Variable que almacena el input (donde el usuario escribe la tarea)
+        const texto = document.getElementById("texto")
+        
+        // Variable que almacena el botón para añadir tareas
+        const boton = document.getElementById("boton")
 
+        // Variable que almacena la lista donde se mostrarán las tareas
+        const lista = document.getElementById("lista")
 
+        // Función para crear una nueva tarea
+        function tarea(){
+            // Obtengo el valor del input (texto escrito por el usuario)
+            let nuevaTarea = texto.value
 
+            // Creo un nuevo elemento de lista (li)
+            let nuevoElementoLista = document.createElement('li')
+            nuevoElementoLista.classList.add("list-group-item")
 
+            // Creo un nodo de texto con el valor del input
+            let contenido = document.createTextNode(nuevaTarea)
+
+            // Agrego el texto al elemento li
+            nuevoElementoLista.appendChild(contenido)
+
+            // Agrego el li a la lista
+            lista.appendChild(nuevoElementoLista)
+
+            // Limpio el input después de añadir la tarea
+            texto.value = ""
+        }
+
+        // Evento click del botón que ejecuta la función tarea
+        boton.addEventListener('click', tarea)
    </script>
 
 </body>
