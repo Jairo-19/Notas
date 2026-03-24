@@ -17,17 +17,47 @@
     <!--CONTENEDOR PRINCIPAR-->
     <main class="container">
 
-        
+        <!-- BOTON DE CREAR NOTAS-->
+         <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-success btn-lg px-4 shadow-sm" onclick="funcioncrear()">Crear nota</button>
+        </div>
 
-
-
+        <!-- CONTENEDOR DONDE SE AÑADEN LAS NOTAS -->
+        <div id="contenedorNotas" class="row justify-content-center"></div>
 
     </main>
 
-    
    <script>
 
+        //FUNCION PARA CREAR NOTAS Y CON BOTON DE BORRAR NOTAS  
+        function funcioncrear(){
+            const contenedor = document.getElementById("contenedorNotas")
+            const nota = document.createElement("div")
+            nota.innerHTML = `
+                 <div class="bg-secondary p-3 rounded shadow-sm">
+                    
+                    <div class="mb-2">
+                        <input class="form-control" type="text" placeholder="Escribe el titulo...">
+                    </div>
 
+                    <div class="mb-3">
+                        <input class="form-control" type="text" placeholder="Escribe tu nota aquí...">
+                    </div>
+
+                    <div id="agregarfila"class="mb-3">
+                        <button class="btn btn-success btn-sm px-3" onclick="funcionagregar()">+ Agregar</button>
+                    </div>
+
+                    <div> 
+                        <button class = "btn btn-danger btn-sm px-3" onclick="this.parentElement.parentElement.remove()">Borrar</button>    
+                    </div
+
+                </div>
+            `
+            //añadir la nota a su contenedor
+            contenedor.appendChild(nota)
+
+        }
 
 
    </script>
