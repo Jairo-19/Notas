@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App de notas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="journals.svg" type="image/svg+xml">
 </head>
 
 <body class="bg-light">
@@ -37,13 +38,14 @@
 
     function crearNota(){
 
+        //CREO EL CONTENEDOR DE LAS NOTAS
         let contenedorNotas = document.createElement('div')
         contenedorNotas.className = "col-12 col-md-6 col-lg-4"
         contenedor.appendChild(contenedorNotas)
 
         //CREO EL DIV PARA LOS 2 INPUNT DEL TITULO Y EL TEXTO
         let divInpunt = document.createElement('div')
-        divInpunt.className = "card shadow-sm p-3"
+        divInpunt.className = "card shadow-sm p-3 bg-light"
         contenedorNotas.appendChild(divInpunt)
         
         //CREO LOS 2 INPUNT Y LOS METO DENTRO DE SU CONTENEDOR
@@ -60,16 +62,26 @@
         
         //CREO EL BOTON DE BORRAR
         let botonBorrar = document.createElement('button')
-        botonBorrar.className = "btn btn-danger w-100"
+        botonBorrar.className = "btn btn-danger"
         botonBorrar.addEventListener('click', function(){
             contenedorNotas.remove()
         })
+
         let palabraBorrar = document.createTextNode("borrar")
         botonBorrar.appendChild(palabraBorrar)
-        contenedorNotas.appendChild(botonBorrar)
-    
-    }
+        divInpunt.appendChild(botonBorrar)
 
+        //CREO EL BOTON DE CREAR FILAS DENTRO DE UNA NOTA
+        let botonAgregarFila = document.createElement('button')
+        botonAgregarFila.className = "btn btn-primary mt-3"
+        let palabraAgregarFila = document.createTextNode("+ Agregar fila")
+        botonAgregarFila.appendChild(palabraAgregarFila)
+        divInpunt.appendChild(botonAgregarFila)
+
+        //FUNCION PARA CREAR FILAS DENTRO DE UNA NOTA
+      
+        
+    }
 
     botonCrear.addEventListener('click', crearNota)
    </script>
