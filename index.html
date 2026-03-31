@@ -54,11 +54,15 @@
         inpuntTitulo.placeholder = "Título"
 
         let inpuntTexto = document.createElement('input')
-        inpuntTexto.className = "form-control mb-3"
+        inpuntTexto.className = "form-control mb-2"
         inpuntTexto.placeholder = "Texto"
 
-        divInpunt.appendChild(inpuntTitulo)
-        divInpunt.appendChild(inpuntTexto)
+        let divInputs = document.createElement('div')
+        divInputs.className = "mb-3"
+        divInputs.id = "divContenido"
+        divInputs.appendChild(inpuntTitulo)
+        divInputs.appendChild(inpuntTexto)
+        divInpunt.appendChild(divInputs)
         
         //CREO EL BOTON DE BORRAR
         let botonBorrar = document.createElement('button')
@@ -69,18 +73,29 @@
 
         let palabraBorrar = document.createTextNode("borrar")
         botonBorrar.appendChild(palabraBorrar)
-        divInpunt.appendChild(botonBorrar)
 
         //CREO EL BOTON DE CREAR FILAS DENTRO DE UNA NOTA
         let botonAgregarFila = document.createElement('button')
-        botonAgregarFila.className = "btn btn-primary mt-3"
+        botonAgregarFila.className = "btn btn-primary"
         let palabraAgregarFila = document.createTextNode("+ Agregar fila")
         botonAgregarFila.appendChild(palabraAgregarFila)
-        divInpunt.appendChild(botonAgregarFila)
+        
+        let divBotones = document.createElement('div')
+        divBotones.className = "d-flex gap-2"
+        divBotones.appendChild(botonBorrar)
+        divBotones.appendChild(botonAgregarFila)
+        divInpunt.appendChild(divBotones)
+
+        botonAgregarFila.addEventListener('click', agregarFila)
 
         //FUNCION PARA CREAR FILAS DENTRO DE UNA NOTA
-      
+        function agregarFila(){
+            let inpuntFila = document.createElement('input')
+            inpuntFila.className = "form-control mb-2"
+            divContenido.appendChild(inpuntFila)
+        }
         
+
     }
 
     botonCrear.addEventListener('click', crearNota)
