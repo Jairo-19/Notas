@@ -59,7 +59,6 @@
 
         let divInputs = document.createElement('div')
         divInputs.className = "mb-3"
-        divInputs.id = "divContenido"
         divInputs.appendChild(inpuntTitulo)
         divInputs.appendChild(inpuntTexto)
         divInpunt.appendChild(divInputs)
@@ -92,7 +91,7 @@
         function agregarFila(){
             let inpuntFila = document.createElement('input')
             inpuntFila.className = "form-control mb-2"
-            divContenido.appendChild(inpuntFila)
+            divInputs.appendChild(inpuntFila)
         }
         
 
